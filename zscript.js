@@ -12,23 +12,29 @@ locationField.addEventListener('keypress', e => {
 
 locBtn.addEventListener('click', () => {
     console.log(locationField.value)
-    queryWeather(locationField.value)
+    handleQuery();
 });
 
+async function handleQuery() {
+    const location = locationField.value;
+    const response = await queryWeather(location);
+    const weatherCard = createWeatherCard(response);
+}
 
-function queryWeather(location) {
+
+async function queryWeather(location) {
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIKEY}`;
-
-    fetch(URL, {
-        mode: 'cors'
+ 
+    return await fetch(URL, { mode: 'cors' })
+    .then(function(response) {
+        return response.json();
     })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(response) {
-            console.log(response);
-        })
-        .catch(function(err) {
-            console.log(err);
-        });
+    .then(function(response) {
+        return JSON.parse(response);
+    });
+
+}
+
+function createWeatherCard(response) { 
+
 }
