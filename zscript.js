@@ -19,6 +19,7 @@ locBtn.addEventListener('click', () => {
 async function handleQuery() {
     const location = locationField.value;
     const response = await queryWeather(location);
+    console.log(response);
     const weatherCard = await createWeatherCard(response);
     resultContainer.appendChild(weatherCard);
 }
@@ -31,14 +32,20 @@ async function queryWeather(location) {
     .then(function(response) {
         return response.json();
     })
-    .then(function(response) {
-        console.log(response);
-        return (response);
+    .catch(function(error){
+        console.log(error);
     });
 
 }
 
 async function createWeatherCard(response) { 
+    if (response.cod === "404") {
+        const errNode = document.createElement("div");
+        errNode.classList.add("cityNF");
+        errNode.innerText = `city ${locationField.value} not found`;
+        return errNode;
+    }
+
     const baseNode = document.querySelector("#hidden-card");
     const newNode = baseNode.cloneNode(true);
     newNode.removeAttribute("hidden");
