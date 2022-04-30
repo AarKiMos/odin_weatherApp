@@ -56,7 +56,11 @@ async function createWeatherCard(response) {
     const nnOther = newNode.querySelector(".wc-other");
 
     nnLocation.innerText=`${response.name}, ${response.sys.country}`;
-    nnMain.innerText=`${response.main.temp - 273.15}°C`;
+    nnMain.children[0].innerText=`${Math.round(response.main.temp - 273.15)}°C  ${response.weather[0].description}`;
+    nnMain.children[1].innerText=`Min: ${Math.round(response.main.temp_min - 273.15)}°C Max: ${Math.round(response.main.temp_max - 273.15)}°C`;
+    nnOther.children[0].innerText=`Wind: ${response.wind.deg}° ${response.wind.speed} m/s`;
+    nnOther.children[1].innerText=`Pressure: ${response.main.pressure} hPa`;
+    nnOther.children[2].innerText=`Humidity: ${response.main.humidity} %`;
 
     console.log(baseNode);
     console.log(newNode);

@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header{
+    height: 10vh;
+    font-size: 6vh;
+    padding: 1vh;
+}
+
+.main-page{
+    flex: 1 1 0;
+}
+
+.search-box-container {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form{
+    font-size: 3vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.search-form > #location {
+    height: 4vh;
+    width: 60vw;
+    max-width: 300px;
+    padding: 2px;
+}
+
+.search-form > #locBtn {
+    width: 100px;
+    height: 4vh;
+}
+
+.result-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.weather-card {
+    min-width: 40vw;
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.footer {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -18,17 +18,21 @@
                 <div class="search-form">
                     <label for="query">Location</label>
                     <input type="text" name="query" id="location">
-                    <input type="button" value="submit" id="locBtn">
+                    <input type="button" value="search" id="locBtn">
                 </div>
             </div>
 
             <div class="result-container">
             </div>
 
-            <div class="weather-card" id="hidden-card" hidden style="border: 1px solid black; border-radius: 5px;">
+            <div class="weather-card" id="hidden-card" hidden>
                 <div class="wc-location">Delhi, IN</div>
-                <div class="wc-main">36*C <span>min: 10*C max: 40*C</span></div>
-                <div class="wc-other">humidity presure wind</div>
+                <div class="wc-main"><span>36*C</span> <span>min: 10*C max: 40*C</span></div>
+                <div class="wc-other">
+                    <div class="wc-o-child"></div>
+                    <div class="wc-o-child"></div>
+                    <div class="wc-o-child"></div>
+                </div>
             </div>
         </div>
         <div class="footer">
