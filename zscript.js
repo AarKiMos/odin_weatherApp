@@ -2,6 +2,7 @@ const APIKEY = "c4cca234510e7d128e1b3e6285c096d0"
 
 const locationField = document.querySelector("#location");
 const locBtn = document.querySelector("#locBtn");
+const resultContainer = document.querySelector(".result-container");
 
 locationField.addEventListener('keypress', e => {
     if (e.key === "Enter") {
@@ -18,7 +19,8 @@ locBtn.addEventListener('click', () => {
 async function handleQuery() {
     const location = locationField.value;
     const response = await queryWeather(location);
-    const weatherCard = createWeatherCard(response);
+    const weatherCard = await createWeatherCard(response);
+    resultContainer.appendChild(weatherCard);
 }
 
 
@@ -30,11 +32,27 @@ async function queryWeather(location) {
         return response.json();
     })
     .then(function(response) {
-        return JSON.parse(response);
+        console.log(response);
+        return (response);
     });
 
 }
 
-function createWeatherCard(response) { 
+async function createWeatherCard(response) { 
+    const baseNode = document.querySelector("#hidden-card");
+    const newNode = baseNode.cloneNode(true);
+    newNode.removeAttribute("hidden");
+    newNode.removeAttribute("id");
 
+    const nnLocation = newNode.querySelector(".wc-location");
+    const nnMain = newNode.querySelector(".wc-main");
+    const nnOther = newNode.querySelector(".wc-other");
+
+    nnLocation.innerText=`${response.name}, ${response.sys.country}`;
+    nnMain.innerText=`${response.main.temp - 273.15}°C`;
+
+    console.log(baseNode);
+    console.log(newNode);
+
+    return newNode;
 }
