@@ -41,14 +41,14 @@ async function queryWeather(location) {
 async function createWeatherCard(response) { 
     if (response.cod === "404") {
         const errNode = document.createElement("div");
-        errNode.classList.add("cityNF");
+        errNode.classList.add("weather-card")
+        errNode.classList.add("errNode");
         errNode.innerText = `city ${locationField.value} not found`;
         return errNode;
     }
 
     const baseNode = document.querySelector("#hidden-card");
     const newNode = baseNode.cloneNode(true);
-    newNode.removeAttribute("hidden");
     newNode.removeAttribute("id");
 
     const nnLocation = newNode.querySelector(".wc-location");

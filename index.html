@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AarKiMos' Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -16,27 +19,26 @@
         <div class="main-page">
             <div class="search-box-container">
                 <div class="search-form">
-                    <label for="query">Location</label>
+                    <label for="query" class="query-label">Location</label>
                     <input type="text" name="query" id="location">
-                    <input type="button" value="search" id="locBtn">
+                    <input type="button" value="Search" id="locBtn">
                 </div>
             </div>
 
             <div class="result-container">
-            </div>
-
-            <div class="weather-card" id="hidden-card" hidden>
-                <div class="wc-location">Delhi, IN</div>
-                <div class="wc-main"><span>36*C</span> <span>min: 10*C max: 40*C</span></div>
-                <div class="wc-other">
-                    <div class="wc-o-child"></div>
-                    <div class="wc-o-child"></div>
-                    <div class="wc-o-child"></div>
+                <div class="weather-card" id="hidden-card">
+                    <div class="wc-location">Delhi, IN</div>
+                    <div class="wc-main"><span class="wc-main-one">36*C</span> <span class="wc-main-two">min: 10*C max: 40*C</span></div>
+                    <div class="wc-other">
+                        <div class="wc-o-child">wind</div>
+                        <div class="wc-o-child">pressure</div>
+                        <div class="wc-o-child">humidity</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer">
-            <span>Made with love by <a href="https://github.com/aarkimos">AarKiMos</a></span>
+            <span>Made with love by <a class="github-link" href="https://github.com/aarkimos">AarKiMos</a></span>
         </div>
     </div>
 </body>

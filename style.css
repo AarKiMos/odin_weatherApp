@@ -8,15 +8,34 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: linear-gradient(
+        145deg,
+        hsl(43deg 91% 49%) 0%,
+        hsl(16deg 100% 62%) 6%,
+        hsl(328deg 100% 50%) 12%,
+        hsl(304deg 92% 54%) 20%,
+        hsl(270deg 100% 71%) 27%,
+        hsl(228deg 100% 72%) 36%,
+        hsl(209deg 97% 61%) 45%,
+        hsl(195deg 100% 50%) 54%,
+        hsl(188deg 100% 50%) 63%,
+        hsl(182deg 100% 50%) 73%,
+        hsl(172deg 100% 49%) 82%,
+        hsl(156deg 100% 48%) 91%,
+        hsl(119deg 85% 56%) 100%
+    );
+    font-family: "Raleway", sans-serif;
+    color: #ffffff;
 }
 
-.header{
+.header {
     height: 10vh;
     font-size: 6vh;
     padding: 1vh;
+    font-weight: 700;
 }
 
-.main-page{
+.main-page {
     flex: 1 1 0;
 }
 
@@ -27,7 +46,7 @@
     justify-content: center;
 }
 
-.search-form{
+.search-form {
     font-size: 3vh;
     display: flex;
     flex-wrap: wrap;
@@ -35,16 +54,42 @@
     justify-content: center;
     align-items: center;
 }
+
+.query-label {
+    font-weight: 500;
+}
+
 .search-form > #location {
     height: 4vh;
     width: 60vw;
     max-width: 300px;
     padding: 2px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+#location:focus,
+#location:hover,
+#location:active {
+    box-shadow: 0px 0px 2px 2px #ffffff;
+    outline: none;
 }
 
 .search-form > #locBtn {
     width: 100px;
     height: 4vh;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+}
+
+#locBtn:hover {
+    box-shadow: 0px 0px 2px 2px #ffffff;
+    outline: none;
 }
 
 .result-container {
@@ -56,9 +101,37 @@
 
 .weather-card {
     min-width: 40vw;
-    padding: 2px;
-    border: 1px solid black;
+    padding: 10px;
+    border: 1px solid white;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wc-location {
+    font-size: 0.9rem;
+}
+
+.wc-main {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.wc-main-one {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.wc-main-two {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.wc-other {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .footer {
@@ -66,4 +139,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 500;
+}
+
+.footer > span > a,
+.footer > span > a:hover,
+.footer > span > a:active,
+.footer > span > a:focus {
+    color: white;
+}
+
+#hidden-card {
+    display: none;
 }
